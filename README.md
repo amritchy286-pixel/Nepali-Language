@@ -6,6 +6,175 @@
 
 ---
 
+# Installation
+
+## Requirements
+
+Nepali Language चलाउन Windows मा Python install भएको हुनुपर्छ।
+
+Recommended:
+
+```text
+Python 3.10+
+```
+
+Python install भएको छ कि छैन जाँच्न:
+
+```powershell
+python --version
+```
+
+यदि Python version देखियो भने अगाडि बढ्न सकिन्छ।
+
+---
+
+## GitHub बाट Clone गर्ने
+
+Git install भएको छ भने:
+
+```powershell
+git clone https://github.com/amritchy286-pixel/Nepali-Language.git
+```
+
+त्यसपछि project folder मा जानुहोस्:
+
+```powershell
+cd Nepali-Language
+```
+
+---
+
+## ZIP बाट Download गर्ने
+
+Git प्रयोग गर्न नचाहे GitHub repository बाट:
+
+```text
+Code → Download ZIP
+```
+
+छान्न सकिन्छ।
+
+ZIP extract गरेपछि `Nepali-Language` folder खोल्नुहोस्।
+
+---
+
+## Windows Installer
+
+Project folder भित्र PowerShell वा Command Prompt खोल्नुहोस्।
+
+त्यसपछि:
+
+```powershell
+.\install.bat
+```
+
+चलाउनुहोस्।
+
+Installer ले:
+
+- Python उपलब्ध छ कि छैन जाँच गर्छ
+- Nepali Language को folder पत्ता लगाउँछ
+- Windows User PATH मा Nepali Language थप्छ
+- `nep` command system बाट चलाउन मिल्ने बनाउँछ
+
+Installation सकिएपछि पुरानो Terminal बन्द गरेर नयाँ PowerShell वा Terminal खोल्नुहोस्।
+
+Verify गर्न:
+
+```powershell
+nep version
+```
+
+Expected:
+
+```text
+Nepali Language 0.1.0
+```
+
+Help हेर्न:
+
+```powershell
+nep help
+```
+
+---
+
+# Quick Start
+
+नयाँ project बनाउन:
+
+```powershell
+nep new MyProject
+```
+
+Project folder मा जान:
+
+```powershell
+cd MyProject
+```
+
+Program चलाउन:
+
+```powershell
+nep run
+```
+
+Expected starter output:
+
+```text
+नमस्ते नेपाल
+```
+
+---
+
+# Current Folder Initialize
+
+कुनै existing खाली folder लाई Nepali Language project बनाउन:
+
+```powershell
+nep init
+```
+
+यसले सामान्यतया:
+
+```text
+examples/main.nep
+nep.json
+```
+
+तयार गर्छ।
+
+त्यसपछि:
+
+```powershell
+nep run
+```
+
+चलाउन सकिन्छ।
+
+---
+
+# Uninstallation
+
+Nepali Language लाई Windows PATH बाट हटाउन project folder भित्र:
+
+```powershell
+.\uninstall.bat
+```
+
+चलाउनुहोस्।
+
+`uninstall.bat` ले:
+
+- Nepali Language लाई User PATH बाट हटाउँछ
+- Project files delete गर्दैन
+
+Uninstall पछि नयाँ Terminal खोल्नुहोस्।
+
+यदि project files पनि हटाउन चाहनुहुन्छ भने त्यसपछि `Nepali-Language` folder manually delete गर्न सकिन्छ।
+
+---
+
 ## मुख्य विशेषताहरू
 
 Nepali Language मा अहिले यी features उपलब्ध छन्:
@@ -43,6 +212,8 @@ Nepali Language मा अहिले यी features उपलब्ध छन
 - Formatter
 - Automated tests
 - Project config (`nep.json`)
+- Windows installer
+- Windows uninstaller
 
 ---
 
@@ -79,7 +250,7 @@ nep run .\examples\main.nep
 ## पाठ
 
 ```nep
-पाठ नाम = "अमृत"
+पाठ नाम = "प्रयोगकर्ता"
 देखाऊ(नाम)
 ```
 
@@ -120,7 +291,7 @@ Output:
 1
 ```
 
-जोर/बिजोर जाँच्न पनि `%` प्रयोग गर्न सकिन्छ:
+जोर/बिजोर जाँच्न:
 
 ```nep
 यदि (10 % 2 == 0) {
@@ -158,7 +329,7 @@ Power operator right-associative छ।
 2 ^ (3 ^ 2)
 ```
 
-त्यसैले output:
+Output:
 
 ```text
 512
@@ -204,7 +375,7 @@ Power operator right-associative छ।
 }
 ```
 
-पुरानो `नत्र` syntax पनि प्रयोग गर्न सकिन्छ:
+`नत्र` syntax पनि प्रयोग गर्न सकिन्छ:
 
 ```nep
 पूर्णाङ्क उमेर = 15
@@ -249,19 +420,17 @@ Power operator right-associative छ।
 
 # रोक र जारी
 
-Loop भित्र:
+Loop रोक्न:
 
 ```text
 रोक
 ```
 
-ले loop रोक्न प्रयोग हुन्छ।
+अर्को iteration मा जान:
 
 ```text
 जारी
 ```
-
-ले अर्को iteration मा जान प्रयोग हुन्छ।
 
 ---
 
@@ -283,7 +452,7 @@ Loop भित्र:
 
 ```nep
 नक्सा प्रयोगकर्ता = {
-    "नाम": "अमृत",
+    "नाम": "प्रयोगकर्ता",
     "उमेर": 25
 }
 
@@ -444,15 +613,15 @@ Import:
 ```nep
 प्रयोग "पाठ"
 
-पाठ नाम = "अमृत"
+पाठ नाम = "प्रयोगकर्ता"
 
 देखाऊ(खालीछ(नाम))
 देखाऊ(खालीछ(""))
 देखाऊ(खालीछैन(नाम))
-देखाऊ(बराबर(नाम, "अमृत"))
+देखाऊ(बराबर(नाम, "प्रयोगकर्ता"))
 देखाऊ(फरक(नाम, "राम"))
 देखाऊ(लामोछ(नाम, 3))
-देखाऊ(छोटोछ(नाम, 10))
+देखाऊ(छोटोछ(नाम, 20))
 ```
 
 ---
@@ -511,7 +680,7 @@ Import:
 प्रयोग "नक्सा"
 
 नक्सा प्रयोगकर्ता = {
-    "नाम": "अमृत",
+    "नाम": "प्रयोगकर्ता",
     "उमेर": 25
 }
 
@@ -554,7 +723,7 @@ Import:
 देखाऊ(लम्बाइ("नेपाल"))
 ```
 
-सूचीमा पनि प्रयोग गर्न सकिन्छ:
+सूचीमा:
 
 ```nep
 सूची अंकहरू = [1, 2, 3]
@@ -601,7 +770,7 @@ JSON बनाउन:
 ```nep
 पाठ json = JSONबनाऊ(
     {
-        "नाम": "अमृत",
+        "नाम": "प्रयोगकर्ता",
         "उमेर": 25
     }
 )
@@ -800,7 +969,10 @@ Development को क्रममा language का मुख्य features a
 - Power `^`
 - Number Standard Library
 - Math Standard Library
-- Error handling
+- Division by zero
+- Modulo by zero
+- Missing import
+- List index error
 
 ---
 
@@ -812,7 +984,11 @@ Nepali-Language
 ├── nep.py
 ├── nep.bat
 ├── nep.json
+├── install.bat
+├── uninstall.bat
 ├── README.md
+├── LICENSE
+├── .gitignore
 │
 ├── src
 │   ├── lexer.py
@@ -835,6 +1011,36 @@ Nepali-Language
     ├── test_language.py
     └── test_errors.py
 ```
+
+---
+
+# GitHub
+
+Repository:
+
+```text
+https://github.com/amritchy286-pixel/Nepali-Language
+```
+
+Latest release:
+
+```text
+v0.1.0
+```
+
+---
+
+# License
+
+यो project MIT License अन्तर्गत उपलब्ध छ।
+
+License details का लागि:
+
+```text
+LICENSE
+```
+
+file हेर्नुहोस्।
 
 ---
 
